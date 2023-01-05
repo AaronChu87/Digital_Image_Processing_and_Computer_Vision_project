@@ -3,8 +3,9 @@ clear
 close all
 rng(0);
 %% Data Dir(for Depth and RGB)
-load("D:\Users\IEC5892M\Desktop\UnrealEngine_Tutorial\UE5_human\Depth2");
-load("D:\Users\IEC5892M\Desktop\UnrealEngine_Tutorial\UE5_human\RGB2");
+addpath("Function\")
+load("UE5_human\Depth2");
+load("UE5_human\RGB2");
 %%
 video_name = 'ORB_SLAM2_unreal_engine';
 video_encode = 'MPEG-4';
