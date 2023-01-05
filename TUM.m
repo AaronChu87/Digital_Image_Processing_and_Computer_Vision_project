@@ -1,6 +1,7 @@
-clc;clear;close all
+clc;clear;close all;rng(0);
+addpath("Function\")
 %%
-imageFolder = 'D:\rgbd_dataset_freiburg3_long_office_household\rgbd_dataset_freiburg3_long_office_household\';
+imageFolder = 'rgbd_dataset_freiburg3_long_office_household\';
 imgFolderColor = [imageFolder,'rgb/'];
 imgFolderDepth = [imageFolder,'depth/'];
 imdsColor      = imageDatastore(imgFolderColor);
