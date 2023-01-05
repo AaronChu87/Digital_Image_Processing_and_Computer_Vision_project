@@ -2,3 +2,8 @@
 Final project in Digital Image Processing and Computer Vision
 
 Reference: https://www.mathworks.com/help/vision/ug/visual-slam-with-an-rgbd-camera.html
+
+# Dataset
+## Human model made from unreal engine and matlab
+
+## RGB-D Dataset from TUM
