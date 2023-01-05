@@ -6,13 +6,13 @@ rng(0);
 addpath("Function\")
 load("Human\Depth2");
 load("Human\RGB2");
-%%
-video_name = 'ORB_SLAM2_unreal_engine';
-video_encode = 'MPEG-4';
-vobj = VideoWriter(video_name, video_encode);
-vobj.FrameRate = 7;
-vobj.Quality = 100;
-vobj.open();
+%% video object
+% video_name = 'ORB_SLAM2_unreal_engine';
+% video_encode = 'MPEG-4';
+% vobj = VideoWriter(video_name, video_encode);
+% vobj.FrameRate = 7;
+% vobj.Quality = 100;
+% vobj.open();
 %% First frame
 currFrameIdx  = 1;
 currIcolor    = RGB(:,:,:,currFrameIdx);
@@ -67,7 +67,7 @@ yLim = [-2 2];
 zLim = [-1 7];
 mapPlot  = helperVisualizeMotionAndStructure(vSetKeyFrames, mapPointSet, xLim, yLim, zLim);
 title('ORB-SLAM2 Framework','Color','w','FontSize',20,'Parent',mapPlot.Axes)
-vobj.writeVideo(getframe(mapPlot.Axes.Parent));
+% vobj.writeVideo(getframe(mapPlot.Axes.Parent));
 %% Tracking
 % ViewId of the last key frame
 lastKeyFrameId    = currKeyFrameId;
@@ -195,13 +195,13 @@ end
     'RelativeTolerance', 1e-16, 'Solver', 'preconditioned-conjugate-gradient', ...
     'MaxIteration', 30,'Verbose',true);
 updatePlot(mapPlot, vSetKeyFrames, mapPointSet);
-vobj.close();
+% vobj.close();
 %% Plot estimate camera
 for i = 1:numel(addedFramesIdx)
     plotCamera("AbsolutePose",optpose.Views.AbsolutePose(i),"AxesVisible",false,"Color","red",'Size', 0.08, Parent=mapPlot.Axes)
 end
 %% Plot ground truth
-load('D:\Users\IEC5892M\Desktop\UnrealEngine_Tutorial\UE5_human\Ground_truth.mat')
+load('Ground_truth.mat')
 pose_temp = cell(size(ground_truth,1),1);
 trans_temp  = ground_truth(:,1:3); % z=x y=-x y = -z
 pose_gt = cell(50,1);
