@@ -189,14 +189,14 @@ for i = 1:numel(addedFramesIdx)
     plotCamera("AbsolutePose",vSetKeyFrames.Views.AbsolutePose(i),"AxesVisible",false,"Color","red",'Size', 0.05, Parent=mapPlot.Axes)
 end
 %% Plot ground truth
-gTruthData = load('orbslamGroundTruth.mat');
+gTruthData = load("Ground_truth\Human_Ground_truth.mat");
 gTruth     = gTruthData.gTruth;
 GTruth = vertcat(gTruth.Translation);
 % traj = line([GTruth(1:end,1)],[GTruth(1:end,2)],[GTruth(1:end,3)],"LineWidth",3,"Color",[0,1,0],"LineStyle","-", Parent=mapPlot.Axes);
 plot3(GTruth(addedFramesIdx,1), GTruth(addedFramesIdx,2), GTruth(addedFramesIdx,3),'-o','LineWidth',1,'Color',[0 1 0], 'DisplayName', 'Actual trajectory', Parent=mapPlot.Axes);
 showLegend(mapPlot);
 
-%% Dense pose graph
+%% pose graph
 % OptimizedPoses = dense_pose_graph_2(vSetKeyFrames);
 OptimizedPoses = dense_pose_graph(vSetKeyFrames, mapPointSet, intrinsics);
 pose_graph_opt = [];
