@@ -201,7 +201,7 @@ for i = 1:numel(addedFramesIdx)
     plotCamera("AbsolutePose",optpose.Views.AbsolutePose(i),"AxesVisible",false,"Color","red",'Size', 0.08, Parent=mapPlot.Axes)
 end
 %% Plot ground truth
-load('Ground_truth.mat')
+load("Ground_truth\Human_Ground_truth.mat")
 pose_temp = cell(size(ground_truth,1),1);
 trans_temp  = ground_truth(:,1:3); % z=x y=-x y = -z
 pose_gt = cell(50,1);
